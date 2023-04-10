@@ -505,6 +505,7 @@ class _WorkerThread(Thread):
 
         except BaseException as e:
             message.stuff_exception(e)
+            message.fail()
 
             throws = message.options.get("throws") or (actor and actor.options.get("throws"))
             if isinstance(e, RateLimitExceeded):
