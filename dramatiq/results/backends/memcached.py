@@ -37,8 +37,8 @@ class MemcachedBackend(ResultBackend):
     .. _memcached: https://memcached.org
     """
 
-    def __init__(self, *, namespace="dramatiq-results", encoder=None, pool=None, pool_size=8, **parameters):
-        super().__init__(namespace=namespace, encoder=encoder)
+    def __init__(self, *, namespace="dramatiq-results", hash_result_key=True, encoder=None, pool=None, pool_size=8, **parameters):
+        super().__init__(namespace=namespace, hash_result_key=hash_result_key, encoder=encoder)
         self.pool = pool or ClientPool(Client(**parameters), pool_size)
 
     def _get(self, message_key):

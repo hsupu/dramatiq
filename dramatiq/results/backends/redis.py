@@ -38,8 +38,8 @@ class RedisBackend(ResultBackend):
     .. _redis: https://redis.io
     """
 
-    def __init__(self, *, namespace="dramatiq-results", encoder=None, client=None, url=None, **parameters):
-        super().__init__(namespace=namespace, encoder=encoder)
+    def __init__(self, *, namespace="dramatiq-results", hash_result_key=True, encoder=None, client=None, url=None, **parameters):
+        super().__init__(namespace=namespace, hash_result_key=hash_result_key, encoder=encoder)
 
         if url:
             parameters["connection_pool"] = redis.ConnectionPool.from_url(url)
