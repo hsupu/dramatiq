@@ -62,4 +62,5 @@ __all__ = [
     "Worker",
 ]
 
-__version__ = "1.17.1"
+# local will be rejected by pypi
+__version__ = "1.17.1+local-1"
